@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Блог о современных твердотельных накопителях: обзоры, сравнения, советы по выбору и оптимизации SSD.">
+    <meta name="keywords" content="SSD, твердотельные накопители, блог, технологии, NVMe, PCIe, SATA, M.2">
+    <title>Блог - Современные Твердотельные Накопители</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <h1>Современные SSD</h1>
+        </div>
+        <nav>
+            <button class="menu-toggle" aria-label="Открыть меню">☰</button>
+            <ul class="nav-links">
+                <li><a href="index.html">Главная</a></li>
+                <li><a href="news.html">Новости</a></li>
+                <li><a href="gallery.html">Галерея</a></li>
+                <li><a href="blog.html">Блог</a></li>
+                <li><a href="contact.html">Контакты</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="blog-section">
+            <h2>Блог</h2>
+            <div class="blog-articles">
+
+                <article>
+                    <img src="blog1.jpg" alt="Статья 1">
+                    <h3>Выбор SSD для игр: NVMe или SATA?</h3>
+                    <span class="author">Автор: Иван Иванов</span>
+                    <p class="excerpt">Разбираемся в преимуществах и недостатках NVMe и SATA SSD для игровых систем. Какой интерфейс выбрать для максимальной производительности?</p>
+                    <div class="article-actions">
+                        <button class="like-button">❤ Нравится (<span class="like-count">0</span>)</button>
+                    </div>
+                    <button class="read-more" data-article="article1">Читать далее</button>
+                    <div class="full-article" id="article1" style="display: none;">
+                        <p>Подробное описание статьи про NVMe и SATA SSD для игр...  Преимущества NVMe, ограничения SATA,  рекомендации по выбору в зависимости от бюджета и потребностей.</p>
+                    </div>
+                </article>
+
+                <article>
+                    <img src="blog2.jpg" alt="Статья 2">
+                    <h3>Оптимизация SSD: советы и рекомендации</h3>
+                    <span class="author">Автор: Петр Петров</span>
+                    <p class="excerpt">Как продлить срок службы SSD и сохранить высокую производительность? Узнайте о лучших практиках оптимизации.</p>
+                    <div class="article-actions">
+                        <button class="like-button">❤ Нравится (<span class="like-count">0</span>)</button>
+                    </div>
+                    <button class="read-more" data-article="article2">Читать далее</button>
+                    <div class="full-article" id="article2" style="display: none;">
+                        <p>Подробное описание советов по оптимизации SSD. TRIM, over-provisioning,  избегание фрагментации,  мониторинг состояния диска.</p>
+                    </div>
+                </article>
+
+                <article>
+                    <img src="blog3.jpg" alt="Статья 3">
+                    <h3>M.2 SSD: что это такое и как выбрать?</h3>
+                    <span class="author">Автор: Анна Сидорова</span>
+                    <p class="excerpt">Подробное руководство по выбору M.2 SSD: разъемы, протоколы, производительность и совместимость.</p>
+                    <div class="article-actions">
+                        <button class="like-button">❤ Нравится (<span class="like-count">0</span>)</button>
+                    </div>
+                    <button class="read-more" data-article="article3">Читать далее</button>
+                    <div class="full-article" id="article3" style="display: none;">
+                        <p>Подробное руководство по выбору M.2 SSD.  Разъемы (B key, M key),  протоколы (NVMe, SATA),  PCIe поколения,  совместимость с материнскими платами.</p>
+                    </div>
+                </article>
+
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Современные SSD. Все права защищены.</p>
+    </footer>
+    <script>
+        const menuToggle = document.querySelector('.menu-toggle');
+        const navLinks = document.querySelector('.nav-links');
+
+        menuToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+
+        document.addEventListener('click', (event) => {
+        if (!event.target.closest('.nav-links') && !event.target.matches('.menu-toggle')) {
+            navLinks.classList.remove('active');
+            }
+        });
+
+        const readMoreButtons = document.querySelectorAll('.read-more');
+
+        readMoreButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                const articleId = button.dataset.article;
+                const fullArticle = document.getElementById(articleId);
+                fullArticle.style.display = fullArticle.style.display === 'none' ? 'block' : 'none';
+                button.textContent = button.textContent === 'Читать далее' ? 'Свернуть' : 'Читать далее';
+            });
+        });
+
+        const likeButtons = document.querySelectorAll('.like-button');
+
+        likeButtons.forEach(button => {
+            let liked = false;
+            let likeCount = 0;
+            const likeCountSpan = button.querySelector('.like-count');
+
+            button.addEventListener('click', () => {
+                liked = !liked;
+                likeCount = liked ? likeCount + 1 : (likeCount > 0 ? likeCount - 1 : 0); 
+
+                likeCountSpan.textContent = likeCount;
+                button.classList.toggle('liked', liked);
+            });
+        });
+    </script>
+
+</body>
+</html>

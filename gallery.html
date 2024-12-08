@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Галерея изображений современных твердотельных накопителей различных форм-факторов и производителей.">
+    <meta name="keywords" content="SSD, твердотельные накопители, галерея, фото, NVMe, M.2, SATA">
+    <title>Галерея - Современные Твердотельные Накопители</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <h1>Современные SSD</h1>
+        </div>
+        <nav>
+            <button class="menu-toggle" aria-label="Открыть меню">☰</button>
+            <ul class="nav-links">
+                <li><a href="index.html">Главная</a></li>
+                <li><a href="news.html">Новости</a></li>
+                <li><a href="gallery.html">Галерея</a></li>
+                <li><a href="blog.html">Блог</a></li>
+                <li><a href="contact.html">Контакты</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="gallery-section">
+            <h2>Галерея</h2>
+            <div class="gallery-grid">
+
+                <div class="gallery-item">
+                    <img src="gallery1.jpg" alt="NVMe M.2 SSD">
+                    <div class="overlay">
+                        <h3>NVMe M.2 SSD</h3>
+                        <p>Высокоскоростной SSD в компактном форм-факторе M.2.</p>
+                    </div>
+                </div>
+
+                <div class="gallery-item">
+                    <img src="gallery2.jpg" alt="SATA SSD">
+                    <div class="overlay">
+                        <h3>SATA SSD</h3>
+                        <p>Надежный и доступный SSD с интерфейсом SATA.</p>
+                    </div>
+                </div>
+
+                <div class="gallery-item">
+                    <img src="gallery3.jpg" alt="Portable SSD">
+                    <div class="overlay">
+                        <h3>Portable SSD</h3>
+                        <p>Портативный SSD для удобного хранения и переноса данных.</p>
+                    </div>
+                </div>
+
+
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Современные SSD. Все права защищены.</p>
+    </footer>
+    <script>
+        const menuToggle = document.querySelector('.menu-toggle');
+        const navLinks = document.querySelector('.nav-links');
+
+        menuToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+
+        document.addEventListener('click', (event) => {
+        if (!event.target.closest('.nav-links') && !event.target.matches('.menu-toggle')) {
+            navLinks.classList.remove('active');
+            }
+        });
+    </script>
+</body>
+</html>

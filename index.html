@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Информация о современных твердотельных накопителях, новостях, технологиях и тенденциях в индустрии SSD.">
+    <meta name="keywords" content="SSD, твердотельные накопители, технологии, новости, блоги">
+    <meta name="author" content="SSD Experts">
+    <title>Современные Твердотельные Накопители</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <h1>Современные SSD</h1>
+        </div>
+        <nav>
+            <button class="menu-toggle" aria-label="Открыть меню">&#9776;</button>
+            <ul class="nav-links">
+                <li><a href="index.html">Главная</a></li>
+                <li><a href="news.html">Новости</a></li>
+                <li><a href="gallery.html">Галерея</a></li>
+                <li><a href="blog.html">Блог</a></li>
+                <li><a href="contact.html">Контакты</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero">
+            <h2>Добро пожаловать в мир SSD</h2>
+            <p>Узнайте больше о технологиях, которые меняют мир цифрового хранения данных.</p>
+            <button onclick="scrollToSection('about')">Узнать больше</button>
+        </section>
+
+        <section id="about">
+            <h3>О нас</h3>
+            <p>Наша цель — предоставлять актуальную информацию, помогать пользователям выбирать лучшие твердотельные накопители и разбираться в современных технологиях.</p>
+        </section>
+
+        <section id="advantages">
+            <h3>Преимущества SSD</h3>
+            <div class="content-column">
+                <ul>
+                    <li>Высокая скорость чтения и записи данных.</li>
+                    <li>Повышенная надежность по сравнению с HDD.</li>
+                    <li>Энергоэффективность и тихая работа.</li>
+                    <li>Компактные размеры, идеальны для ноутбуков.</li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="latest-news">
+            <h3>Последние новости</h3>
+            <div class="content-column">
+                <article>
+                    <h4>Новые технологии PCIe 5.0</h4>
+                    <p>PCIe 5.0 удваивает пропускную способность, делая SSD ещё быстрее.</p>
+                </article>
+                <article>
+                    <h4>Советы по выбору SSD</h4>
+                    <p>Как выбрать SSD для игровых систем и серверов? Читайте в нашем блоге.</p>
+                </article>
+            </div>
+        </section>
+
+        <section id="faq">
+            <h3>Часто задаваемые вопросы</h3>
+            <div class="content-column">
+                <details>
+                    <summary>Чем SSD лучше HDD?</summary>
+                    <p>SSD обеспечивает в десятки раз большую скорость, надёжность и меньший уровень шума.</p>
+                </details>
+                <details>
+                    <summary>Как долго работает SSD?</summary>
+                    <p>Современные модели способны служить 5-10 лет при стандартной эксплуатации.</p>
+                </details>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Современные SSD. Все права защищены.</p>
+    </footer>
+
+    <script>
+        function scrollToSection(id) {
+            document.getElementById(id).scrollIntoView({ behavior: 'smooth' });
+        }
+
+        const menuToggle = document.querySelector('.menu-toggle');
+        const navLinks = document.querySelector('.nav-links');
+
+        menuToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+
+        document.addEventListener('click', (event) => {
+        if (!event.target.closest('.nav-links') && !event.target.matches('.menu-toggle')) {
+            navLinks.classList.remove('active');
+            }
+        });
+    </script>
+</body>
+</html>

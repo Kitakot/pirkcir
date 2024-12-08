@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Контактная информация сайта о современных твердотельных накопителях.">
+    <meta name="keywords" content="SSD, твердотельные накопители, контакты">
+    <title>Контакты - Современные Твердотельные Накопители</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <h1>Современные SSD</h1>
+        </div>
+        <nav>
+            <button class="menu-toggle" aria-label="Открыть меню">☰</button>
+            <ul class="nav-links">
+                <li><a href="index.html">Главная</a></li>
+                <li><a href="news.html">Новости</a></li>
+                <li><a href="gallery.html">Галерея</a></li>
+                <li><a href="blog.html">Блог</a></li>
+                <li><a href="contact.html">Контакты</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="contact-section">
+            <h2>Контакты</h2>
+            <div class="contact-content">
+            <div class="contact-info">
+                <h3>Свяжитесь с нами</h3>
+                <p>
+                   Email: <a href="mailto:info@example.com">info@example.com</a><br>
+                   Телефон: <a href="tel:+71234567890">+7 (123) 456-78-90</a><br>
+                   Адрес: г. Москва, ул. Примерная, д.1 
+                </p>
+
+                <h3>Мы в социальных сетях</h3>
+                <div class="social-links">
+                    <a href="#" target="_blank"><i class="fab fa-vk"></i></a>
+                    <a href="#" target="_blank"><i class="fab fa-youtube"></i></a>
+                    <a href="#" target="_blank"><i class="fab fa-x"></i></a>
+                    <a href="#" target="_blank"><i class="fab fa-tiktok"></i></a>
+                </div>
+            </div>
+
+
+
+            <div class="contact-form">
+                <h3>Форма обратной связи</h3>
+                <form id="feedback-form">
+                    <input type="text" id="name" name="name" placeholder="Ваше имя" required>
+                    <input type="email" id="email" name="email" placeholder="Ваш email" required>
+                    <textarea id="message" name="message" placeholder="Ваше сообщение" required></textarea>
+                    <div class="captcha">
+                        <span id="captcha-text"></span>
+                        <input type="text" id="captcha-input" placeholder="Введите капчу" required>
+                    </div>
+                    <button type="submit">Отправить</button>
+                </form>
+            </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>© 2024 Современные SSD. Все права защищены.</p>
+    </footer>
+
+    <script>
+         const menuToggle = document.querySelector('.menu-toggle');
+        const navLinks = document.querySelector('.nav-links');
+
+        menuToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+
+        document.addEventListener('click', (event) => {
+        if (!event.target.closest('.nav-links') && !event.target.matches('.menu-toggle')) {
+            navLinks.classList.remove('active');
+            }
+        });
+
+
+        function generateCaptcha() {
+            const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+            let captcha = '';
+            for (let i = 0; i < 6; i++) {
+                captcha += characters.charAt(Math.floor(Math.random() * characters.length));
+            }
+            return captcha;
+        }
+
+
+        const captchaText = document.getElementById('captcha-text');
+        const captchaInput = document.getElementById('captcha-input');
+        let captchaValue = generateCaptcha();  // Генерируем начальное значение
+        captchaText.textContent = captchaValue;
+
+
+
+        document.getElementById('feedback-form').addEventListener('submit', function(event) {
+            event.preventDefault(); // Предотвращаем отправку по умолчанию
+
+            if (captchaInput.value === captchaValue) {
+                alert('Форма отправлена!');
+                captchaValue = generateCaptcha();
+                captchaText.textContent = captchaValue;
+                captchaInput.value = ""; // Очищаем поле ввода
+            } else {
+                alert('Неверная капча!');
+                captchaValue = generateCaptcha(); // Генерируем новую капчу при ошибке
+                captchaText.textContent = captchaValue;
+                captchaInput.value = ""; // Очищаем поле ввода
+            }
+        });
+
+
+    </script>
+
+</body>
+</html>
