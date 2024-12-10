@@ -53,7 +53,7 @@ header .nav-links a:hover {
 }
 
 main {
-    max-width: 800px;
+    max-width: 1000px;
     margin: 0 auto;
     padding: 2rem;
     flex: 1; /* main занимает оставшееся пространство */
@@ -373,6 +373,7 @@ footer {
 }
 
 @media (min-width: 768px) {
+
     .contact-content {
         flex-direction: row; /* Горизонтальное расположение */
     }
