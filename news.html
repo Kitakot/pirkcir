@@ -39,7 +39,7 @@
                     <div class="article-actions">
                         <button class="like-button">❤ Нравится (<span class="like-count">0</span>)</button>
                     </div>
-                    <button class="read-more" data-article="article1">Читать далее</button>
+                    <button class="read-more-news" data-article="article1">Читать далее</button>
                     <div class="full-article" id="article1" style="display: none;">
                         <p><em>Samsung</em> представила новую серию твердотельных накопителей, которые готовы установить новые стандарты в мире хранения данных. Эти SSD, по заявлению компании, обеспечивают рекордную производительность, способную удовлетворить даже самые высокие требования современных пользователей.</p>
 
@@ -64,7 +64,7 @@
                     <div class="article-actions">
                         <button class="like-button">❤ Нравится (<span class="like-count">0</span>)</button>
                     </div>
-                    <button class="read-more" data-article="article2">Читать далее</button>
+                    <button class="read-more-news" data-article="article2">Читать далее</button>
                     <div class="full-article" id="article2" style="display: none;">
                         <p>На рынке твердотельных накопителей продолжается снижение цен, что делает SSD все более доступными для массового потребителя. Аналитики отмечают, что в ближайшие месяцы эта тенденция сохранится благодаря сочетанию нескольких факторов.</p>
 
@@ -90,7 +90,7 @@
                     <div class="article-actions">
                         <button class="like-button">❤ Нравится (<span class="like-count">0</span>)</button>
                     </div>
-                    <button class="read-more" data-article="article3">Читать далее</button>
+                    <button class="read-more-news" data-article="article3">Читать далее</button>
                     <div class="full-article" id="article3" style="display: none;">
                         <h1>Инновационная технология увеличивает срок службы SSD</h1>
 
@@ -113,7 +113,7 @@
     <script src="script.js"></script>
     <script>
 
-        const readMoreButtons = document.querySelectorAll('.read-more');
+        const readMoreButtons = document.querySelectorAll('.read-more-news');
 
         readMoreButtons.forEach(button => {
             button.addEventListener('click', () => {
